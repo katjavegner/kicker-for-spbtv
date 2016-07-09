@@ -1,0 +1,44 @@
+{
+  "name": "kicker-for-spbtv",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Турнирная таблица для кикера",
+  "contributors": [
+    {
+      "name": "Oleg Tsyro",
+      "email": "otsyro@spbtv.com",
+      "url": "https://github.com/Veyb/"
+    },
+    {
+      "name": "Kathie Vegner",
+      "email": "evegner@spbtv.com",
+      "url": "https://github.com/dearkathie"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dearkathie/kicker-for-spbtv.git"
+  },
+  "homepage": "https://github.com/dearkathie/kicker-for-spbtv",
+  "readmeFilename": "README.md",
+  "engines": {
+    "node": "^6.2.0"
+  },
+  "dependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.9.0",
+    "node-sass": "^3.8.0",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --context-base build/ --host 0.0.0.0 --inline"
+  }
+}
