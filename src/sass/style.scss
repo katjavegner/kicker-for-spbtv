@@ -5,24 +5,93 @@
 *
   box-sizing: border-box
 
-.main-menu, .secondary-menu
-  width: 24%
+html,body
+  height: 100%
+  margin: 0px
+  padding: 0px
 
-.main-menu
-  text-align: right
+#page-content
+  height: 100%
 
-.secondary-menu
-  text-align: left
-
-.main-content
-  width: 52%
-  text-align: center
-  background-color: $gray
-  
 .content-align
   float: left
+
+.main-menu
+  width: 10%
+  text-align: right
+  margin-right: 20px
+  margin-top: 40px
   padding: 20px
 
-.logo-style
+.logo-style-main
   height: 50px
-  margin-bottom: 40px
+  margin-bottom: 80px
+
+.secondary-menu
+  width: 8%
+  text-align: left
+  margin-left: 20px
+  margin-top: 40px
+  padding: 20px
+
+.logo-style-small
+  height: 30px
+  margin-bottom: 100px
+
+.main-content
+  padding-top: 20px
+  width: 78%
+  height: 100%
+  background-color: $gray
+  border-left: 1px solid $border
+  border-right: 1px solid $border
+
+h1
+  color: $text
+  font-size: 42px
+  font-weight: normal
+  text-align: left
+  margin-left: 40px
+  margin-bottom: 70px
+
+.game-data
+  height: 30%
+  padding: 30px 30px
+  background-color: $white
+  border-top: 1px solid $border
+  border-bottom: 1px solid $border
+
+
+#team1, #team2
+  color: $text
+  font-size: 200%
+
+.items-position  
+  position: absolute
+  top: 35%
+  transform: translate(-50%, -50%)
+
+#goal1, #goal2
+  font-size: 900%
+  margin-right: 20px
+
+#team1::first-letter, #goal1
+    color: $blue
+
+#team1
+  left: 25%;
+
+#team2::first-letter, #goal2
+    color: $red
+
+#team2
+  left: 75%;
+
+.timer-dots
+  color: $lighttext
+  font-size: 800%
+  margin-right: 20px
+
+
+.counter
+  left: 50%;
