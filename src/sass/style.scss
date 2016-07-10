@@ -1,3 +1,28 @@
 @import "normalize.scss";
 @import "fonts.scss";
 @import "variables.scss";
+
+*
+  box-sizing: border-box
+
+.main-menu, .secondary-menu
+  width: 24%
+
+.main-menu
+  text-align: right
+
+.secondary-menu
+  text-align: left
+
+.main-content
+  width: 52%
+  text-align: center
+  background-color: $gray
+  
+.content-align
+  float: left
+  padding: 20px
+
+.logo-style
+  height: 50px
+  margin-bottom: 40px
