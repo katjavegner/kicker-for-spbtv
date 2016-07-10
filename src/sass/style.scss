@@ -10,29 +10,23 @@ html,body
   margin: 0px
   padding: 0px
 
-#page-content
+.page-content
   height: 100%
+  margin: auto
+  width: 992px
 
 .content-align
   float: left
 
-.main-menu
-  width: 10%
-  text-align: right
-  margin-right: 20px
+.menu-align
   margin-top: 40px
   padding: 20px
+  width: 100px
+  text-align: center
 
 .logo-style-main
   height: 50px
   margin-bottom: 80px
-
-.secondary-menu
-  width: 8%
-  text-align: left
-  margin-left: 20px
-  margin-top: 40px
-  padding: 20px
 
 .logo-style-small
   height: 30px
@@ -40,7 +34,7 @@ html,body
 
 .main-content
   padding-top: 20px
-  width: 78%
+  width: 792px
   height: 100%
   background-color: $gray
   border-left: 1px solid $border
@@ -55,43 +49,41 @@ h1
   margin-bottom: 70px
 
 .game-data
-  height: 30%
+  height: 250px
   padding: 30px 30px
   background-color: $white
   border-top: 1px solid $border
   border-bottom: 1px solid $border
 
-
-#team1, #team2
+.team1, .team2
   color: $text
-  font-size: 200%
+  font-size: 30px
+  top: 90px
 
-.items-position  
-  position: absolute
-  top: 35%
+.items-position
+  position: relative
   transform: translate(-50%, -50%)
 
-#goal1, #goal2
-  font-size: 900%
-  margin-right: 20px
+.goal1, .goal2
+  font-size: 150px
+  margin-right: 10px
 
-#team1::first-letter, #goal1
+.team1::first-letter, .goal1
     color: $blue
 
-#team1
-  left: 25%;
+.team1
+  left: 120px;
 
-#team2::first-letter, #goal2
+.team2::first-letter, .goal2
     color: $red
 
-#team2
-  left: 75%;
+.team2
+  left: 200px;
 
 .timer-dots
   color: $lighttext
-  font-size: 800%
-  margin-right: 20px
-
+  font-size: 150px
+  margin-right: 10px
 
 .counter
-  left: 50%;
+  left: 450px;
