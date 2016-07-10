@@ -5,11 +5,13 @@ module.exports = {
   entry: './main.js',
   output: {
     path: __dirname + '/build',
+    publicPath: 'http://localhost:8080/',
     filename: './js/[name].js'
   },
-
+  devServer: {
+      contentBase: './build',
+  },
   watch: true,
-
   module: {
 
     loaders: [

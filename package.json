@@ -39,6 +39,6 @@
   "devDependencies": {},
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --context-base build/ --host 0.0.0.0 --inline"
+    "start": "webpack-dev-server --host 0.0.0.0 --inline"
   }
 }
