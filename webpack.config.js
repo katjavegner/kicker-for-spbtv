@@ -1,5 +1,15 @@
 'use strict';
 
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+const htmls = ['index.html'];
+
+const htmlsPlugins = htmls.map((name) => {
+  return new HtmlWebpackPlugin({
+    filename: name,
+    template: `../${name}`
+  });
+});
+
 module.exports = {
   context: __dirname + '/src/js',
   entry: './main.js',
@@ -11,6 +21,9 @@ module.exports = {
   devServer: {
       contentBase: './build',
   },
+  plugins: [
+    ...htmlsPlugins
+  ],
   watch: true,
   module: {
 
@@ -36,7 +49,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'file?name=[name].[ext]'
+        loader: 'html'
       }
     ]
   },
