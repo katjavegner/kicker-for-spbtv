@@ -22,7 +22,8 @@
   "homepage": "https://github.com/dearkathie/kicker-for-spbtv",
   "readmeFilename": "README.md",
   "engines": {
-    "node": "^6.2.0"
+    "node": "^6.2.0",
+    "npm": "^3.8.9"
   },
   "dependencies": {
     "babel-core": "^6.10.4",

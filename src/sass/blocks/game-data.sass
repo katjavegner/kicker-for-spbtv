@@ -1,0 +1,57 @@
+.game-data
+  padding: 0 10px
+  padding-top: 20px
+  padding-bottom: 10px
+  background-color: $white
+  border-top: 1px solid $border
+  border-bottom: 1px solid $border
+
+  &__teams-info
+    height: 140px
+    display: flex
+    justify-content: space-between
+
+
+  &__team
+    color: $text
+    font-size: 30px
+    width: 240px
+    overflow: hidden
+    text-overflow: ellipsis
+    align-self: center
+    text-align: center
+    cursor: pointer
+
+    &--blue
+      &::first-letter
+        color: $blue
+
+    &--red
+      &::first-letter
+        color: $red
+
+  &__score
+    display: flex
+    justify-content: space-between
+
+  &__team-score
+    font-size: 140px
+    line-height: 150px
+
+    &--blue
+      color: $blue
+
+    &--red
+      color: $red
+
+  &__score-dots
+    color: $lighttext
+    font-size: 130px
+    line-height: 130px
+    margin: 0 10px
+
+  &__timer
+    width: 100%
+    height: auto
+    text-align: center
+    color: $text

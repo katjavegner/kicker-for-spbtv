@@ -15,11 +15,13 @@ module.exports = {
   entry: './main.js',
   output: {
     path: __dirname + '/build',
-    publicPath: 'http://localhost:8080/',
+    publicPath: '/',
     filename: './js/[name].js'
   },
   devServer: {
-      contentBase: './build',
+    host: 'localhost', // default
+    port: 8080, // default
+    contentBase: './build'
   },
   plugins: [
     ...htmlsPlugins
@@ -36,7 +38,7 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.sass$/,
         loader: 'style?singleton!css?autoprefixer-loader?browsers=last 2 version!sass?indentedSyntax'
       },
       {
