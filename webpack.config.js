@@ -1,7 +1,7 @@
 'use strict';
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-const htmls = ['index.html'];
+const htmls = ['index.html', 'results.html'];
 
 const htmlsPlugins = htmls.map((name) => {
   return new HtmlWebpackPlugin({
