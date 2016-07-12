@@ -22,7 +22,8 @@
   "homepage": "https://github.com/dearkathie/kicker-for-spbtv",
   "readmeFilename": "README.md",
   "engines": {
-    "node": "^6.2.0"
+    "node": "^6.2.0",
+    "npm": "^3.8.9"
   },
   "dependencies": {
     "babel-core": "^6.10.4",
@@ -30,6 +31,8 @@
     "babel-preset-es2015": "^6.9.0",
     "css-loader": "^0.23.1",
     "file-loader": "^0.9.0",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.22.0",
     "node-sass": "^3.8.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
@@ -39,6 +42,6 @@
   "devDependencies": {},
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --context-base build/ --host 0.0.0.0 --inline"
+    "start": "webpack-dev-server --host 0.0.0.0 --inline"
   }
 }
