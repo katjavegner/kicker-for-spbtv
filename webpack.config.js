@@ -6,7 +6,8 @@ const htmls = ['index.html'];
 const htmlsPlugins = htmls.map((name) => {
   return new HtmlWebpackPlugin({
     filename: name,
-    template: `../${name}`
+    template: `../${name}`,
+    inject: false
   });
 });
 
@@ -15,7 +16,7 @@ module.exports = {
   entry: './main.js',
   output: {
     path: __dirname + '/build',
-    publicPath: '/',
+    publicPath: '',
     filename: './js/[name].js'
   },
   devServer: {
