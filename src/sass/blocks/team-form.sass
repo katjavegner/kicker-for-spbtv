@@ -1,0 +1,85 @@
+.team-form
+  color: $text
+  font-weight: bold
+  font-size: 17px
+
+  &__choose-color
+    display: flex
+    flex-direction: row
+    padding-bottom: 15px
+
+  &__choose-text
+    margin: 0
+
+  &__field-radio
+
+
+  &__radio
+    display: none
+
+  &__radio-label
+    font-size: 0
+    position: relative
+
+    &::before
+      position: absolute
+      content: ''
+      top: -13px
+      width: 25px
+      height: 15px
+      border-radius: 5px
+
+    &--blue
+      &::before
+        left: 15px
+        background-color: $blue
+
+    &--red
+      &::before
+        left: 55px
+        background-color: $red
+
+  &__field
+
+
+  &__field-label
+    display: block
+    margin-bottom: 4px
+
+  &__input
+    width: 100%
+    margin-bottom: 10px
+    padding: 7px
+    outline: 0
+    border: 2px solid $border
+    border-radius: 4px
+    color: $text
+
+    &:hover
+      border: 2px solid $lighttext-bg
+
+    &:focus
+      border: 2px solid $text
+
+  &__btn
+    outline: 0
+    background-color: $lighttext-bg
+    border: 2px solid $lighttext-bg
+    cursor: pointer
+    padding: 8px
+    margin-top: 5px
+    border-radius: 5px
+
+    &:hover
+      border: 2px solid $text
+      box-shadow: 1px 2px 3px rgba(0,50,100,.9)
+
+    &:active
+      background-color: $text
+      border: 2px solid $text
+      box-shadow: 1px 2px 3px rgba(0,50,100,.9)
+
+.team-form__radio:checked + .team-form__radio-label::before
+  border: 1px solid $text
+  box-shadow: 1px 2px 3px rgba(0,50,100,.9)
+  top: -14px

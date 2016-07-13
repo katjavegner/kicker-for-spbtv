@@ -1,0 +1,54 @@
+.team-popup
+  position: relative
+  border: 2px solid $border
+  border-radius: 6px
+  padding: 20px
+  width: 400px
+  margin: 0 auto
+  top: 30%
+  background-color: $white
+
+  &__close
+    position: absolute
+    top: -14px
+    right: -14px
+    font-size: 0
+    border: 2px solid $lighttext-bg
+    border-radius: 50%
+    outline: 0
+    width: 35px
+    height: 35px
+    background-color: $white
+    cursor: pointer
+
+    &:hover
+     border: 2px solid $text
+     background-color: $gray
+
+     &::before
+        background-color: $text
+
+     &::after
+        background-color: $text
+
+    &::before
+      transform: rotate(45deg)
+      content: ''
+      position: absolute
+      top: 14px
+      right: 2px
+      width: 27px
+      height: 3px
+      border-radius: 3px
+      background-color: $lighttext-bg
+
+    &::after
+      transform: rotate(-45deg)
+      content: ''
+      position: absolute
+      top: 14px
+      right: 2px
+      width: 27px
+      height: 3px
+      border-radius: 3px
+      background-color: $lighttext-bg
