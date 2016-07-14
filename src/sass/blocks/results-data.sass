@@ -7,8 +7,23 @@
   border-bottom: 1px solid $border
 
 .data-table
-    &__row
-    &__row--first
-    &__header
-    &-body-row
-    &__cell
+  width: 100%
+  border-collapse: collapse
+
+  &__row:nth-child(even)
+    background-color: $gray
+
+  &__header, &__cell
+    height: 50px
+    border: 1px solid $border
+
+  &__cell
+    text-align: center
+
+    &--blue
+      &::first-letter
+        color: $blue
+
+    &--red
+      &::first-letter
+        color: $red
