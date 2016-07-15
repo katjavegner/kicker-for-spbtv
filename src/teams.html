@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Турнирная таблица для кикера</title>
+  </head>
+
+  <body class="page">
+    <main class="page-content">
+
+      <div class="main-nav">
+        <a class="main-nav__item  main-nav__item--game" href="" title="Game page"></a>
+        <a class="main-nav__item  main-nav__item--team" href="" title="Team page"></a>
+        <a class="main-nav__item  main-nav__item--statistic" href="" title="Statistics page"></a>
+      </div>
+
+      <div class="main-content">
+        <h1 class="main-content__header">Команды</h1>
+        <!-- <div class="game-data">
+          <div class="game-data__teams-info">
+            <a id="team1" class="game-data__team  game-data__team--blue">Выберите команду</a>
+            <div class="game-data__score">
+              <div id="score1" class="game-data__team-score  game-data__team-score--blue">0</div>
+              <span class="game-data__score-dots">:</span>
+              <div id="score2" class="game-data__team-score  game-data__team-score--red">0</div>
+            </div>
+            <a id="team2" class="game-data__team  game-data__team--red">Выберите команду</a>
+          </div>
+          <div class="game-data__timer">13 минута 23 секунда</div>
+        </div> -->
+        <div class="teams-container">
+          <div class="teams-column">
+            <h2 class="teams-column__header  teams-column__header--blue">Синие</h2>
+            <a class="team-card" href="">
+              <h3 class="team-card__team-name  team-card__team-name--blue">Тэсторы</h3>
+              <p class="team-card__player-field">Игрок: <span class="team-card__player-name">Олег</span></p>
+              <p class="team-card__player-field">Игрок: <span class="team-card__player-name">Катя</span></p>
+              <button class="team-card__delete" type="button" name="Delete">Удалить</button>
+            </a>
+            <a class="team-card  team-card--disable" href="">
+              <h3 class="team-card__team-name  team-card__team-name--blue">Отключённые</h3>
+              <p class="team-card__player-field">Игрок: <span class="team-card__player-name">Толян</span></p>
+              <p class="team-card__player-field">Игрок: <span class="team-card__player-name">Гриша</span></p>
+              <button class="team-card__delete  team-card__delete--invisible" type="button" name="Delete">Удалить</button>
+            </a>
+          </div>
+          <div class="teams-column">
+            <h2 class="teams-column__header  teams-column__header--red">Красные</h2>
+            <a class="team-card" href="">
+              <h3 class="team-card__team-name  team-card__team-name--red">Криэйторы</h3>
+              <p class="team-card__player-field">Игрок: <span class="team-card__player-name">Влад</span></p>
+              <p class="team-card__player-field">Игрок: <span class="team-card__player-name">Дениска</span></p>
+              <button class="team-card__delete" type="button" name="Delete">Удалить</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-bar">
+        <!-- <a class="btn-bar__item  btn-bar__item--new-game" href="" title="New game"></a>
+        <a class="btn-bar__item  btn-bar__item--reset" href="" title="Reset"></a>
+        <a class="btn-bar__item  btn-bar__item--cancel" href="" title="Cancel goal"></a> -->
+        <a class="btn-bar__item  btn-bar__item--create-team" href="" title="Create team"></a>
+      </div>
+    </main>
+
+    <div class="popup-overlay">
+      <div class="team-popup">
+        <button class="team-popup__close" type="button" title="Close">Закрыть</button>
+        <form class="team-form" action="https://echo.htmlacademy.ru" method="post">
+          <div class="team-form__choose-color">
+            <p class="team-form__choose-text">Цвет команды: </p>
+            <div class="team-form__field-radio">
+              <input class="team-form__radio"type="radio" name="team-color" id="blue" checked>
+              <label class="team-form__radio-label  team-form__radio-label--blue" for="blue">Синий</label>
+            </div>
+            <div class="team-form__field-radio">
+              <input class="team-form__radio"type="radio" name="team-color" id="red">
+              <label class="team-form__radio-label  team-form__radio-label--red" for="red">Красный</label>
+            </div>
+          </div>
+
+          <div class="team-form__field">
+            <label class="team-form__field-label" for="team-name">Название команды:</label>
+            <input class="team-form__input" type="text"
+            name="team-name" placeholder="Введите название вашей команды" id="team-name">
+          </div>
+          <div class="team-form__field">
+            <label class="team-form__field-label" for="player-1">Игрок:</label>
+            <input class="team-form__input" type="text"
+            name="player-1" placeholder="Введите участника команды" id="player-1">
+          </div>
+          <div class="team-form__field">
+            <label class="team-form__field-label" for="player-2">Игрок:</label>
+            <input class="team-form__input" type="text"
+            name="player-2" placeholder="Введите участника команды" id="player-2">
+          </div>
+          <button class="team-form__btn" type="submit" title="button">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
