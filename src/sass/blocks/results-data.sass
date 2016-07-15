@@ -20,10 +20,18 @@
   &__cell
     text-align: center
 
-    &--blue
-      &::first-letter
-        color: $blue
+    &--team
+      text-align: left
+      padding-left: 30px
 
-    &--red
-      &::first-letter
-        color: $red
+      &__blue, &__red
+        &::first-letter
+          font-weight: bold
+
+      &__blue
+        &::first-letter
+          color: $blue
+
+      &__red
+        &::first-letter
+          color: $red
