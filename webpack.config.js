@@ -1,7 +1,7 @@
 'use strict';
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-const htmls = ['index.html', 'results.html', 'teams.html'];
+const htmls = ['index.html', 'results.html', 'teams.html', 'game.html'];
 
 const htmlsPlugins = htmls.map((name) => {
   return new HtmlWebpackPlugin({
@@ -34,9 +34,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        query: {
-          presets: ['es2015']
-        }
+        exclude: /node_modules/
+        // query: {
+        //   presets: ['es2015']
+        // }
       },
       {
         test: /\.sass$/,
