@@ -22,7 +22,8 @@ module.exports = {
   devServer: {
     host: 'localhost', // default
     port: 8080, // default
-    contentBase: './build'
+    contentBase: './build',
+    historyApiFallback: true
   },
   plugins: [
     ...htmlsPlugins
@@ -35,9 +36,6 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         exclude: /node_modules/
-        // query: {
-        //   presets: ['es2015']
-        // }
       },
       {
         test: /\.sass$/,
@@ -54,6 +52,10 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'html'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
       }
     ]
   },
@@ -62,5 +64,5 @@ module.exports = {
     aggregateTimeout: 100
   },
 
-  devtool: 'cheap-inline-module-source-map'
+  devtool: 'eval-source-map'
 };

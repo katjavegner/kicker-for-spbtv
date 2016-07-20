@@ -1,14 +1,21 @@
 import React from 'react';
-import MainNavItem from './item';
+// import {Link} from 'react-router';
+import {IndexLink} from 'react-router';
 
 export default class MainNav extends React.Component {
 
   render() {
+    const className = 'main-nav__item';
+    const activeClassName = 'main-nav__item--active'
+
     return (
       <div className='main-nav'>
-        <MainNavItem type='game' title='Game page' />
-        <MainNavItem type='team' title='Team page' />
-        <MainNavItem type='statistic' title='Statistic page' />
+        <IndexLink to='/' className={ className + '  ' + className + '--game' }
+          activeClassName={ activeClassName } title='Game page' />
+        <IndexLink to='/teams' className={ className + '  ' + className + '--teams' }
+          activeClassName={ activeClassName } title='Teams page' />
+        <IndexLink to='/results' className={ className + '  ' + className + '--statistic' }
+          activeClassName={ activeClassName } title='Statistic page' />
       </div>
     );
   }
