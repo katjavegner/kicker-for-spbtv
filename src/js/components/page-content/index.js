@@ -17,7 +17,7 @@ export default class PageContent extends React.Component {
 
     return (
       <main className='page-content'>
-        <MainNav />
+        <MainNav path={ this.props.location.pathname } />
         <div className='main-content'>
           <Header>{ header }</Header>
           { this.props.content }
