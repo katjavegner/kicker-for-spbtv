@@ -31,7 +31,7 @@ export default class TableRow extends React.Component {
     let tableRow = sortedTeams.map(function(team) {
       counter++;
       return (
-        <tr className='data-table__row'>
+        <tr className='data-table__row' key={ team.id }>
           <td className={ className }>{ counter }</td>
           <td className={ className + '  ' + classNameTeam + '  ' + className + '--' + team.teamColor }>{ team.teamName }</td>
           <td className={ className }>{ team.games }</td>
