@@ -17,11 +17,11 @@ export default class MainNav extends React.Component {
 
     return (
       <div className='main-nav'>
-        <Link to='/' className={ className + '  ' + className + '--game' }
+        <Link to='/' className={ `${className}  ${className}--game` }
           activeClassName={ indexActive ? activeClassName : '' } title='Game page' />
-        <Link to='/teams' className={ className + '  ' + className + '--teams' }
+        <Link to='/teams' className={ `${className}  ${className}--teams` }
           activeClassName={ activeClassName } title='Teams page' />
-        <Link to='/results' className={ className + '  ' + className + '--statistic' }
+        <Link to='/results' className={ `${className}  ${className}--statistic` }
           activeClassName={ activeClassName } title='Statistic page' />
       </div>
     );

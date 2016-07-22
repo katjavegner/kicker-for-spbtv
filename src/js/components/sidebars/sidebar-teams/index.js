@@ -7,7 +7,7 @@ export default class SidebarTeams extends React.Component {
 
     return (
       <div>
-        <button className={ className + '  ' + className + '--create-team' } title='Create team' />
+        <button className={ `${className}  ${className}--create-team` } title='Create team' />
       </div>
     );
   }

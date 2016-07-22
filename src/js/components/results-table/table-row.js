@@ -33,7 +33,7 @@ export default class TableRow extends React.Component {
       return (
         <tr className='data-table__row' key={ team.id }>
           <td className={ className }>{ counter }</td>
-          <td className={ className + '  ' + classNameTeam + '  ' + className + '--' + team.teamColor }>{ team.teamName }</td>
+          <td className={ `${className}  ${classNameTeam}  ${className}--${team.teamColor}` }>{ team.teamName }</td>
           <td className={ className }>{ team.games }</td>
           <td className={ className }>{ team.wins }</td>
           <td className={ className }>{ team.losses }</td>

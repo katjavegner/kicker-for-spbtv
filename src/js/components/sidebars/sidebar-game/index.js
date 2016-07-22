@@ -7,9 +7,9 @@ export default class SidebarGame extends React.Component {
 
     return (
       <div>
-        <button className={ className + '  ' + className + '--new-game' } title='New game' />
-        <button className={ className + '  ' + className + '--reset' } title='Reset game' />
-        <button className={ className + '  ' + className + '--cancel' } title='Cancel goal' />
+        <button className={ `${className}  ${className}--new-game` } title='New game' />
+        <button className={ `${className}  ${className}--reset` } title='Reset game' />
+        <button className={ `${className}  ${className}--cancel` } title='Cancel goal' />
       </div>
     );
   }
