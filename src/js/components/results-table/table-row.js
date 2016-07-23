@@ -17,7 +17,7 @@ export default class TableRow extends React.Component {
     return 0;
   }
 
-  setSorting() {
+  getSortingTeams() {
     let teams = this.props.data.slice();
     return teams.sort(this.isDecrease);
   }
@@ -25,7 +25,7 @@ export default class TableRow extends React.Component {
   render() {
     const className = 'data-table__cell';
     const classNameTeam = 'data-table__cell--team';
-    let sortedTeams = this.setSorting();
+    let sortedTeams = this.getSortingTeams();
     let counter = 0
 
     let tableRow = sortedTeams.map(function(team) {
