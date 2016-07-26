@@ -1,8 +1,5 @@
 .team-card
-  text-decoration: none
-  color: $text
   padding: 10px
-  display: block
   border: 2px solid $border
   border-radius: 5px
   margin-bottom: 25px
@@ -20,6 +17,11 @@
     &:hover
       border: 2px solid $border
       box-shadow: none
+
+  &__link
+    text-decoration: none
+    color: $text
+    display: block
 
   &__team-name
     margin-top: 0
@@ -39,6 +41,21 @@
   &__player-name
     font-style: italic
 
+  &__edit
+    position: absolute
+    bottom: -10px
+    right: -10px
+    font-size: 0
+    border: 2px solid $lighttext-bg
+    border-radius: 50%
+    outline: 0
+    width: 25px
+    height: 25px
+    background: url('../img/edit-btn-sprite.png') no-repeat $white
+    background-position: -6px -6px
+    background-size: 34px
+    visibility: hidden
+
   &__delete
     position: absolute
     top: -10px
@@ -51,9 +68,6 @@
     height: 25px
     background-color: $white
     visibility: hidden
-
-    &--invisible
-      display: none
 
     &::before
       transform: rotate(45deg)
@@ -77,7 +91,8 @@
       border-radius: 3px
       background-color: $lighttext-bg
 
-.team-card:hover .team-card__delete
+.team-card:hover .team-card__delete,
+.team-card:hover .team-card__edit
   visibility: visible
   cursor: pointer
 
@@ -90,3 +105,8 @@
 
    &::after
       background-color: $text
+
+.team-card:hover .team-card__edit:hover
+  background: url('../img/edit-btn-sprite.png') no-repeat $gray
+  background-position: -6px -40px
+  background-size: 34px

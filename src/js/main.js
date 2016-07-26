@@ -14,12 +14,12 @@ import TeamsContainer from './components/teams-container';
 
 
 ReactDOM.render(
-  // <PageContent />,
   <Router history={ browserHistory }>
     <Route path='/' component={ PageContent }>
       <IndexRoute header='Новая игра'  components={{ content: GameData, sidebar: SidebarGame }} />
       <Route path='teams' header='Команды'  components={{ content: TeamsContainer, sidebar: SidebarTeams }} />
       <Route path='results' header='Результаты игр' components={{ content: ResultsTable }} />
+      <Route path='choose' header='Выбор команды' components={{ content: TeamsContainer }} />
     </Route>
   </Router>,
   document.getElementById('App')
