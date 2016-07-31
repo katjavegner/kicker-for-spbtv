@@ -13,7 +13,7 @@ export default class TeamsContainer extends React.Component {
 
   render() {
     const { chooseIn } = this.props.location.query;
-    const chooseMode = !!chooseIn;
+    const mode = chooseIn ? 'select' : 'edit';
 
     return (
       <div className='teams-container'>
@@ -22,9 +22,10 @@ export default class TeamsContainer extends React.Component {
           header='Синие'
           data={ this.state.data }
           disabled={ chooseIn === 'red' }
-          chooseMode={ chooseMode }
-          onEditCard={ (id) => {  console.log('edit', id) } }
-          onDeleteCard={ (id) => {  console.log('delete', id) } }
+          mode={ mode }
+          onSelectCard={id => console.log('select', id)}
+          onEditCard={id => console.log('edit', id)}
+          onDeleteCard={id => console.log('delete', id)}
         />
 
         <TeamsColumn
@@ -32,9 +33,10 @@ export default class TeamsContainer extends React.Component {
           header='Красные'
           data={ this.state.data }
           disabled={ chooseIn === 'blue' }
-          chooseMode={ chooseMode }
-          onEditCard={ (id) => {  console.log('edit', id) } }
-          onDeleteCard={ (id) => {  console.log('delete', id) } }
+          mode={ mode }
+          onSelectCard={id => console.log('select', id)}
+          onEditCard={id => console.log('edit', id)}
+          onDeleteCard={id => console.log('delete', id)}
         />
       </div>
     );

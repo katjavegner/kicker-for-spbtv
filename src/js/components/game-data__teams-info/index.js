@@ -1,11 +1,9 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import Team from './team';
 import ScoreContainer from '../game-data__score';
 
-import { browserHistory } from 'react-router';
-
 export default class TeamsInfo extends React.Component {
-
   constructor(props) {
     super(props);
     this.handleChoose = this.handleChoose.bind(this);

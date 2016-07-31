@@ -5,7 +5,6 @@ export default class TeamsColumn extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleCardClick = this.handleCardClick.bind(this);
   }
 
   handleEditClick(id) {
@@ -16,20 +15,16 @@ export default class TeamsColumn extends React.Component {
     this.props.onDeleteCard(id);
   }
 
+  handleCardClick(id) {
+    this.props.onSelectCard(id);
+  }
+
   getSortingTeams() {
     let teams = this.props.data.slice();
 
     return teams.filter((team) => {
       return team.teamColor === this.props.teams;
     });
-  }
-
-  handleCardClick() {
-    const { mode } = this.props;
-
-    if (mode === 'select') {
-      return this.props.onChoose();
-    }
   }
 
   renderCardBody(team) {
@@ -57,7 +52,8 @@ export default class TeamsColumn extends React.Component {
     return (
       <button className={ cx('team-card__delete') }
         onClick={ handleClick }
-        type='button' name='Delete'>
+        type='button'
+        name='Delete'>
           Удалить
       </button>
     );
@@ -69,28 +65,36 @@ export default class TeamsColumn extends React.Component {
     return (
       <button className={ cx('team-card__edit') }
         onClick={ handleClick }
-        type='button' name='Edit'>
+        type='button'
+        name='Edit'>
           Редактировать
       </button>
     );
   }
 
   render() {
+    const { mode, disabled } = this.props;
     let sortedTeams = this.getSortingTeams();
-    const classNameCard = cx('team-card', { 'team-card--disable': this.props.disabled });
+
+    const classNameCard = cx('team-card', {
+      'team-card--disable': disabled,
+      'team-card--selectable': mode === 'select' && !disabled
+    });
     const classNameHeader = cx(
       'teams-column__header',
       `teams-column__header--${this.props.teams}`,
-      { 'teams-column__header--disable': this.props.disabled }
+      { 'teams-column__header--disable': disabled }
     );
-    const mode = (!this.props.chooseMode && !this.props.disabled) ? 'edit' : null
 
     const teamCard = sortedTeams.map((team) => {
+      const handleClick = mode === 'select' && !disabled ?
+        this.handleCardClick.bind(this, team.id) : null;
+
       return (
-        <div className={ classNameCard } key={ team.id }>
+        <div className={ classNameCard } key={ team.id } onClick={ handleClick }>
           { this.renderCardBody(team) }
-          { mode === 'edit' ? this.renderDeleteButton(team) : null }
-          { mode === 'edit' ? this.renderEditButton(team) : null }
+          { mode === 'edit' && !disabled ? this.renderDeleteButton(team) : null }
+          { mode === 'edit' && !disabled ? this.renderEditButton(team) : null }
         </div>
       );
     });
