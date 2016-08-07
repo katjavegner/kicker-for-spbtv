@@ -1,22 +1,31 @@
 import React from 'react';
 import cx from 'classnames';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
+import store from '../../redux/store';
+import { chooseTeamBlue, chooseTeamRed } from '../../redux/reducers';
 
 export default class TeamsColumn extends React.Component {
-
   constructor(props) {
     super(props);
   }
 
-  handleEditClick(id) {
-    this.props.onEditCard(id);
+  handleEditClick(team) {
+    this.props.onEditCard(team);
   }
 
-  handleDeleteClick(id) {
-    this.props.onDeleteCard(id);
+  handleDeleteClick(team) {
+    this.props.onDeleteCard(team);
   }
 
-  handleCardClick(id) {
-    this.props.onSelectCard(id);
+  handleCardClick(team) {
+    this.props.onSelectCard(team);
+    if (team.teamColor === 'blue') {
+      store.dispatch(chooseTeamBlue(team));
+    } else if (team.teamColor === 'red') {
+      store.dispatch(chooseTeamRed(team));
+    }
+    browserHistory.push({ pathname: '/' });
   }
 
   getSortingTeams() {
@@ -29,25 +38,25 @@ export default class TeamsColumn extends React.Component {
 
   renderCardBody(team) {
     return (
-      <a className={ 'team-card__link' }>
+      <a className={ cx('team-card__link') }>
         <h3 className={ cx(
           `team-card__team-name`,
           `team-card__team-name--${team.teamColor}`
         )}>
           { team.teamName }
         </h3>
-        <p className='team-card__player-field' >
-          Игрок: <span className='team-card__player-name'>{ team.player1 || '-' }</span>
+        <p className={ cx('team-card__player-field') } >
+          Игрок: <span className={ cx('team-card__player-name') }>{ team.player1 || '-' }</span>
         </p>
-        <p className='team-card__player-field' >
-          Игрок: <span className='team-card__player-name'>{ team.player2 || '-' }</span>
+        <p className={ cx('team-card__player-field') } >
+          Игрок: <span className={ cx('team-card__player-name') }>{ team.player2 || '-' }</span>
         </p>
       </a>
     );
   }
 
   renderDeleteButton(team) {
-    const handleClick = this.handleDeleteClick.bind(this, team.id);
+    const handleClick = this.handleDeleteClick.bind(this, team);
 
     return (
       <button className={ cx('team-card__delete') }
@@ -60,7 +69,7 @@ export default class TeamsColumn extends React.Component {
   }
 
   renderEditButton(team) {
-    const handleClick = this.handleEditClick.bind(this, team.id);
+    const handleClick = this.handleEditClick.bind(this, team);
 
     return (
       <button className={ cx('team-card__edit') }
@@ -88,7 +97,7 @@ export default class TeamsColumn extends React.Component {
 
     const teamCard = sortedTeams.map((team) => {
       const handleClick = mode === 'select' && !disabled ?
-        this.handleCardClick.bind(this, team.id) : null;
+        this.handleCardClick.bind(this, team) : null;
 
       return (
         <div className={ classNameCard } key={ team.id } onClick={ handleClick }>
@@ -100,7 +109,7 @@ export default class TeamsColumn extends React.Component {
     });
 
     return (
-      <div className={'teams-column'}>
+      <div className={ cx('teams-column') }>
         <h2 className={ classNameHeader }>
           { this.props.header }
         </h2>

@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import TeamsColumn from './teams-column';
 
 import TeamsJson from '../../../data/teams.json';
@@ -16,16 +17,16 @@ export default class TeamsContainer extends React.Component {
     const mode = chooseIn ? 'select' : 'edit';
 
     return (
-      <div className='teams-container'>
+      <div className={ cx('teams-container') }>
         <TeamsColumn
           teams='blue'
           header='Синие'
           data={ this.state.data }
           disabled={ chooseIn === 'red' }
           mode={ mode }
-          onSelectCard={id => console.log('select', id)}
-          onEditCard={id => console.log('edit', id)}
-          onDeleteCard={id => console.log('delete', id)}
+          onSelectCard={team => console.log('select', team.teamName)}
+          onEditCard={team => console.log('edit', team)}
+          onDeleteCard={team => console.log('delete', team)}
         />
 
         <TeamsColumn
@@ -34,9 +35,9 @@ export default class TeamsContainer extends React.Component {
           data={ this.state.data }
           disabled={ chooseIn === 'blue' }
           mode={ mode }
-          onSelectCard={id => console.log('select', id)}
-          onEditCard={id => console.log('edit', id)}
-          onDeleteCard={id => console.log('delete', id)}
+          onSelectCard={team => console.log('select', team.teamName)}
+          onEditCard={team => console.log('edit', team)}
+          onDeleteCard={team => console.log('delete', team)}
         />
       </div>
     );
