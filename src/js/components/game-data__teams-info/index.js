@@ -2,7 +2,6 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import cx from 'classnames';
-import store from '../../redux/store';
 import Team from './team';
 import ScoreContainer from '../game-data__score';
 
@@ -17,13 +16,13 @@ class TeamsInfo extends React.Component {
   }
 
   render() {
-    const team = store.getState().teams.choosed;
+    const team = this.props.choosedTeam;
 
     return (
       <div className={ cx('game-data__teams-info') }>
-        <Team team='blue' teamData={ team.Blue } onChoose={ this.handleChoose } />
+        <Team team='blue' teamData={ team.blue } onChoose={ this.handleChoose } />
         <ScoreContainer />
-        <Team team='red' teamData={ team.Red } onChoose={ this.handleChoose } />
+        <Team team='red' teamData={ team.red } onChoose={ this.handleChoose } />
       </div>
     );
   }

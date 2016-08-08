@@ -2,34 +2,31 @@ import { combineReducers } from 'redux';
 import { createAction, handleActions } from 'redux-actions';
 
 // Actions
-const chooseTeamBlue = createAction('CHOOSE_TEAM_BLUE');
-const chooseTeamRed = createAction('CHOOSE_TEAM_RED');
+const chooseTeam = createAction('CHOOSE_TEAM');
 
 // Reducers
 const defaultState = {
   choosed: {
-    Blue: null,
-    Red: null
+    blue: null,
+    red: null
   }
 };
 
 const teams = handleActions({
-  'CHOOSE_TEAM_BLUE': (state, action) => {
-    const team =  action.payload;
+  'CHOOSE_TEAM': (state, action) => {
+    const team = action.payload;
+    let { red, blue } = state.choosed;
+
+    if (team.teamColor === 'red') {
+      red = team;
+    }
+    
+    if (team.teamColor === 'blue') {
+      blue = team;
+    }
+
     return Object.assign({}, state, {
-      choosed: {
-        Blue: team,
-        Red: state.choosed.Red
-      }
-    });
-  },
-  'CHOOSE_TEAM_RED': (state, action) => {
-    const team =  action.payload;
-    return Object.assign({}, state, {
-      choosed: {
-        Blue: state.choosed.Blue,
-        Red: team
-      }
+      choosed: { red, blue }
     });
   }
 }, defaultState);
@@ -40,4 +37,4 @@ const reducer = combineReducers({
 });
 
 export default reducer;
-export { chooseTeamBlue, chooseTeamRed };
+export { chooseTeam };

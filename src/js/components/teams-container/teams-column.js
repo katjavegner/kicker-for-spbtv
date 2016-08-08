@@ -1,9 +1,5 @@
 import React from 'react';
 import cx from 'classnames';
-import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
-import store from '../../redux/store';
-import { chooseTeamBlue, chooseTeamRed } from '../../redux/reducers';
 
 export default class TeamsColumn extends React.Component {
   constructor(props) {
@@ -20,12 +16,6 @@ export default class TeamsColumn extends React.Component {
 
   handleCardClick(team) {
     this.props.onSelectCard(team);
-    if (team.teamColor === 'blue') {
-      store.dispatch(chooseTeamBlue(team));
-    } else if (team.teamColor === 'red') {
-      store.dispatch(chooseTeamRed(team));
-    }
-    browserHistory.push({ pathname: '/' });
   }
 
   getSortingTeams() {
