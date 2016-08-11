@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 import Team from './team';
-import ScoreContainer from '../game-data__score';
+import ScoreContainer from '../score';
 
 class TeamsInfo extends React.Component {
   constructor(props) {
