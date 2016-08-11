@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../main-content__header';
+import Header from './header';
 
 export default class MainContent extends React.Component {
   constructor(props) {
