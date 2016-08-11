@@ -4,10 +4,9 @@ import cx from 'classnames';
 export default class Team extends React.Component {
   constructor(props) {
     super(props);
-    this.chooseTeam = this.chooseTeam.bind(this);
   }
 
-  chooseTeam() {
+  chooseTeam = () => {
     this.props.onChoose(this.props.team);
   }
 

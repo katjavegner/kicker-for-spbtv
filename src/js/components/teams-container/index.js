@@ -20,6 +20,10 @@ class TeamsContainer extends React.Component {
     browserHistory.push({ pathname: '/' });
   }
 
+  handleCurrentTeam = (team) => {
+    browserHistory.push({ pathname: `/teams/edit/${team.id}` });
+  }
+
   render() {
     const { chooseIn } = this.props.location.query;
     const mode = chooseIn ? 'select' : 'edit';
@@ -34,7 +38,7 @@ class TeamsContainer extends React.Component {
           mode={ mode }
           onSelectCard={ this.handleChooseTeam }
           onDeleteCard={ team => console.log('delete', team) }
-          onEditCard={ team => console.log('edit', team) }
+          onEditCard={ this.handleCurrentTeam }
         />
 
         <TeamsColumn
@@ -45,7 +49,7 @@ class TeamsContainer extends React.Component {
           mode={ mode }
           onSelectCard={ this.handleChooseTeam }
           onDeleteCard={ team => console.log('delete', team) }
-          onEditCard={ team => console.log('edit', team) }
+          onEditCard={ this.handleCurrentTeam }
         />
       </div>
     );

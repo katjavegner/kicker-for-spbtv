@@ -16,7 +16,7 @@ module.exports = {
   entry: './main.js',
   output: {
     path: __dirname + '/build',
-    publicPath: '',
+    publicPath: '/',
     filename: './js/[name].js'
   },
   devServer: {

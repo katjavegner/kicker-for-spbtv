@@ -1,27 +1,49 @@
 import React from 'react';
+import cx from 'classnames';
 import MainNav from '../main-nav';
 import Header from '../main-content__header';
 import MainContent from '../main-content';
+import { browserHistory } from 'react-router';
 
 export default class PageContent extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  closeOverlay = (evt) => {
+    if (evt.target.className === 'popup-overlay') {
+      browserHistory.goBack();
+    }
+  }
 
   render() {
-    const header = this.props.routes[1].header || '';
-    const content = this.props.content;
+    const { pathname } = this.props.location;
+    const { content } = this.props;
+
     let sidebar;
     if (this.props.sidebar) {
       sidebar = (
-        <div className='sidebar'>
+        <div className={ cx('sidebar') }>
           { this.props.sidebar }
         </div>
       );
     }
 
+    let popup;
+    if (this.props.popup) {
+      popup = (
+        <div onClick={ this.closeOverlay } className={ cx('popup-overlay')}>
+          { this.props.popup }
+        </div>
+      );
+    }
+
     return (
-      <main className='page-content'>
-        <MainNav path={ this.props.location.pathname } />
-        <MainContent header={header} content={content} />
+      <main className={ cx('page-content') }>
+        <MainNav path={ pathname } />
+        <MainContent content={ content } />
         { sidebar }
+        { popup }
       </main>
     );
   }

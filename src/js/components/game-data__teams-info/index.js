@@ -8,10 +8,9 @@ import ScoreContainer from '../game-data__score';
 class TeamsInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChoose = this.handleChoose.bind(this);
   }
 
-  handleChoose(teamsColor) {
+  handleChoose = (teamsColor) => {
     browserHistory.push({ pathname: '/choose', query: { chooseIn: teamsColor } });
   }
 
