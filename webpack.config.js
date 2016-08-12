@@ -1,5 +1,7 @@
 'use strict';
 
+var precss = require('precss');
+var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const htmls = ['index.html', 'results.html', 'teams.html', 'game.html'];
 
@@ -39,7 +41,7 @@ module.exports = {
       },
       {
         test: /\.sass$/,
-        loader: 'style?singleton!css?autoprefixer-loader?browsers=last 2 version!sass?indentedSyntax'
+        loader: 'style?singleton!css!postcss!sass?indentedSyntax'
       },
       {
         test: /\.(woff|woff2)$/,
@@ -58,6 +60,10 @@ module.exports = {
         loader: 'json'
       }
     ]
+  },
+
+  postcss: function () {
+    return [precss, autoprefixer({ browsers: ['last 2 version'] })];
   },
 
   watchOptions: {
