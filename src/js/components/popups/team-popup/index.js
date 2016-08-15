@@ -6,11 +6,28 @@ import FieldRadio from './field-radio';
 export default class TeamPopup extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      teamColor: 'blue',
+      teamName: '',
+      player1: '',
+      player2: ''
+    };
   }
 
-  handleCheckRadio = () => {
-    console.log('click on radio');
+  handleCheckRadio = (evt) => {
+    this.setState({ teamColor: evt.target.id });
+  }
+
+  handleChangeTeamName = (evt) => {
+    this.setState({ teamName: evt.target.value });
+  }
+
+  handleChangePlayer1 = (evt) => {
+    this.setState({ player1: evt.target.value });
+  }
+
+  handleChangePlayer2 = (evt) => {
+    this.setState({ player2: evt.target.value });
   }
 
   closePopup = (evt) => {
@@ -30,28 +47,47 @@ export default class TeamPopup extends React.Component {
               teamColor='blue'
               onRadio={ this.handleCheckRadio }
               labelText='Синий'
-              defaultChecked
+              defaultChecked={ (this.state.teamColor === 'blue') ? true : false }
             />
             <FieldRadio
               teamColor='red'
               onRadio={ this.handleCheckRadio }
               labelText='Красный'
+              defaultChecked={ (this.state.teamColor === 'red') ? true : false }
             />
           </div>
           <div className={ cx('team-form__field') }>
             <label className={ cx('team-form__field-label') } htmlFor='team-name'>Название команды:</label>
-            <input className={ cx('team-form__input') } type='text'
-            name='team-name' placeholder='Введите название вашей команды' id='team-name' />
+            <input className={ cx('team-form__input') }
+              type='text'
+              name='team-name'
+              placeholder='Введите название вашей команды'
+              id='team-name'
+              value={ this.state.teamName }
+              onChange={ this.handleChangeTeamName }
+            />
           </div>
           <div className={ cx('team-form__field') }>
-            <label className={ cx('team-form__field-label') } htmlFor='player-1'>Игрок:</label>
-            <input className={ cx('team-form__input') } type='text'
-            name='player-1' placeholder='Введите участника команды' id='player-1' />
+            <label className={ cx('team-form__field-label') } htmlFor='player1'>Игрок:</label>
+            <input className={ cx('team-form__input') }
+              type='text'
+              name='player1'
+              placeholder='Введите участника команды'
+              id='player1'
+              value={ this.state.player1 }
+              onChange={ this.handleChangePlayer1 }
+            />
           </div>
           <div className={ cx('team-form__field') }>
-            <label className={ cx('team-form__field-label') } htmlFor='player-2'>Игрок:</label>
-            <input className={ cx('team-form__input') } type='text'
-            name='player-2' placeholder='Введите участника команды' id='player-2' />
+            <label className={ cx('team-form__field-label') } htmlFor='player2'>Игрок:</label>
+            <input className={ cx('team-form__input') }
+              type='text'
+              name='player2'
+              placeholder='Введите участника команды'
+              id='player2'
+              value={ this.state.player2 }
+              onChange={ this.handleChangePlayer2 }
+            />
           </div>
           <button className={ cx('team-form__btn') } type='submit' title='button'>Сохранить</button>
         </form>

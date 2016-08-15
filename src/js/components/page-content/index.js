@@ -15,7 +15,7 @@ export default class PageContent extends React.Component {
     }
   }
 
-  skrollFix = () => {
+  scrollFix = () => {
     const doc = document.documentElement;
     const app = document.getElementById('App');
     let thereIsScroll = (window.innerWidth !== doc.clientWidth) ? true : false;
@@ -23,10 +23,10 @@ export default class PageContent extends React.Component {
   }
 
   componentDidMount() {
-    this.skrollFix();
+    this.scrollFix();
   }
   componentDidUpdate() {
-    this.skrollFix();
+    this.scrollFix();
   }
 
   render() {

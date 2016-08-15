@@ -20,7 +20,7 @@ const teams = handleActions({
     if (team.teamColor === 'red') {
       red = team;
     }
-    
+
     if (team.teamColor === 'blue') {
       blue = team;
     }
