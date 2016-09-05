@@ -1,0 +1,28 @@
+.data-table
+  width: 100%
+  border-collapse: collapse
+
+  &__row:nth-child(even)
+    background-color: $gray
+
+  &__header, &__cell
+    height: 50px
+    border: 1px solid $border
+    text-align: center
+
+  &__cell
+    &--team
+      text-align: left
+      padding-left: 30px
+
+    &--blue, &--red
+      &::first-letter
+        font-weight: bold
+
+    &--blue
+      &::first-letter
+        color: $blue
+
+    &--red
+      &::first-letter
+        color: $red

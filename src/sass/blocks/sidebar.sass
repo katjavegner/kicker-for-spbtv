@@ -1,0 +1,36 @@
+.sidebar
+  margin-top: 70px
+  padding: 20px
+  width: 100px
+  text-align: center
+  display: inline-block
+  vertical-align: top
+
+  &__item
+    display: block
+    height: 42px
+    width: 60px
+    margin-bottom: 88px
+    background-position: 8px -1px
+    background-repeat: no-repeat
+    background-size: 44px
+    cursor: pointer
+    background-color: $white
+    outline: none
+    border: none
+
+
+    &--new-game
+      background-image: url('../img/football-ball-sprite.png')
+
+    &--reset
+      background-image: url('../img/football-game-referee-doing-hand-signals-sprite.png')
+
+    &--cancel
+      background-image: url('../img/football-warning-card-in-a-referee-hand-sprite.png')
+
+    &--create-team
+      background-image: url('../img/sports-sprite.png')
+
+    &:hover
+      background-position: 8px -45px

@@ -1,7 +1,9 @@
 'use strict';
 
+var precss = require('precss');
+var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-const htmls = ['index.html', 'results.html', 'teams.html'];
+const htmls = ['index.html', 'results.html', 'teams.html', 'game.html'];
 
 const htmlsPlugins = htmls.map((name) => {
   return new HtmlWebpackPlugin({
@@ -16,13 +18,14 @@ module.exports = {
   entry: './main.js',
   output: {
     path: __dirname + '/build',
-    publicPath: '',
+    publicPath: '/',
     filename: './js/[name].js'
   },
   devServer: {
     host: 'localhost', // default
     port: 8080, // default
-    contentBase: './build'
+    contentBase: './build',
+    historyApiFallback: true
   },
   plugins: [
     ...htmlsPlugins
@@ -34,13 +37,11 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        query: {
-          presets: ['es2015']
-        }
+        exclude: /node_modules/
       },
       {
         test: /\.sass$/,
-        loader: 'style?singleton!css?autoprefixer-loader?browsers=last 2 version!sass?indentedSyntax'
+        loader: 'style?singleton!css!postcss!sass?indentedSyntax'
       },
       {
         test: /\.(woff|woff2)$/,
@@ -53,13 +54,21 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'html'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
       }
     ]
+  },
+
+  postcss: function () {
+    return [precss, autoprefixer({ browsers: ['last 2 version'] })];
   },
 
   watchOptions: {
     aggregateTimeout: 100
   },
 
-  devtool: 'cheap-inline-module-source-map'
+  devtool: 'eval-source-map'
 };
