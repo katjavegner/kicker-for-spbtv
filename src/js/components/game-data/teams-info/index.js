@@ -27,9 +27,10 @@ class TeamsInfo extends React.Component {
   }
 }
 
+
 function mapStateToProps(state) {
   return {
-    choosedTeam: state.teams.choosed
+    choosedTeam: state.choosed
   }
 }
 
